@@ -1,17 +1,27 @@
-[2025.10.04 16:02:33]  [INFO] [HOST-CLIENT] 使用zh-ch作为备选语言
-[2025.10.04 16:02:33]  [INFO] [HOST-CLIENT] 
-   _____                                     
-  / ____|                                    
- | |        ___   _ __    ___   __  __   ___ 
- | |       / _ \ | '__|  / _ \  \ \/ /  / _ \
- | |____  |  __/ | |    | (_) |  >  <  |  __/
-  \_____|  \___| |_|     \___/  /_/\_\  \___|
-                                             
-                                             
-[2025.10.04 16:02:33]  [INFO] [HOST-CLIENT] 如果你已经开始使用的本软件，说明你已经知晓并同意了本软件的eula协议
-[2025.10.04 16:02:33]  [INFO] [HOST-CLIENT] 版本 ： 3.2-RELEASE
-[2025.10.04 16:02:33]  [INFO] [HOST-CLIENT] 连接 proxy.ceroxe.fun ...
-[2025.10.04 16:02:33]  [INFO] [SERVER] 服务器连接成功 31ms
-[2025.10.04 16:02:33]  [WARNING] [SERVER] 这个序列号有 499.998574256897 MB 流量可以消耗。
-[2025.10.04 16:02:33]  [INFO] [HOST-CLIENT] 有效期至：2026/01/01-12:21
-[2025.10.04 16:02:33]  [WARNING] [SERVER] 使用链接地址： proxy.ceroxe.fun:56001 来从公网连接。
+文件错误: [WinError 2] 系统找不到指定的文件。
+请检查 NeoLink 路径是否正确
+Traceback (most recent call last):
+  File "d:\project\NeoLink_kingda\NeoLink.py", line 88, in RunNeoLink
+    self.process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+                   ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sxxyrry_XR\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sxxyrry_XR\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1554, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] 系统找不到指定的文件。

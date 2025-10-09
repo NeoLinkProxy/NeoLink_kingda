@@ -35,17 +35,17 @@ def GetContentFromGithub(name: str, rep: str, bra: str, filepath: str, use_china
     # 中国内地常用的GitHub镜像站
     china_mirrors = [
         # f'https://cdn.jsdelivr.net/gh/{name}/{rep}@{bra}/{filepath}',
-        f'https://raw.gitmirror.com/{name}/{rep}/{bra}/{filepath}'
+        f'https://hub.gitmirror.com/'
     ]
     
     # 默认使用原始GitHub链接
     url = f'https://raw.githubusercontent.com/{name}/{rep}/{bra}/{filepath}'
-    
+
     # 如果指定使用中国镜像，则尝试镜像站点
     if use_china_mirror:
         for mirror_url in china_mirrors:
             try:
-                response = requests.get(mirror_url, timeout=10)
+                response = requests.get(mirror_url + url, timeout=10)
                 response.raise_for_status()
                 return response.text
             except requests.RequestException as e:

@@ -16,13 +16,11 @@ class NeoLink:
             NeoLinkPath: str,
             LocalPort: int,
             SerialNumber: str,
-            JavaPath: str,
         ):
         self.filePath: str = filePath
         self.NeoLinkPath: str = NeoLinkPath
         self.LocalPort: int = LocalPort
         self.SerialNumber: str = SerialNumber
-        self.JavaPath: str = JavaPath
         self.root: tk.Tk | tkt.Tk = root
         self.parents = tk.Frame(self.root)
         self.parents.pack()
@@ -60,14 +58,20 @@ class NeoLink:
 
             # 根据文件类型决定执行方式
             if self.NeoLinkPath.endswith('.jar'):
-                # JAR 文件需要用 Java 执行
-                cmd = [
-                    self.JavaPath, '-jar', self.NeoLinkPath,
-                    '--zh-cn',
-                    f'--key:{self.SerialNumber}',
-                    f'--local-port:{self.LocalPort}',
-                    f'--output-file:{self.filePath}',
-                ]
+                # # JAR 文件需要用 Java 执行
+                # cmd = [
+                #     self.JavaPath, '-jar', self.NeoLinkPath,
+                #     '--zh-cn',
+                #     f'--key:{self.SerialNumber}',
+                #     f'--local-port:{self.LocalPort}',
+                #     f'--output-file:{self.filePath}',
+                # ]
+                
+                with open(self.filePath, 'w', encoding='UTF-8') as f:
+                    f.write(f'NeoLink 执行出错 (退出码: None)\n')
+                    f.write('=' * 50 + '\n')
+                    f.write('无法运行 jar 版本！')
+                return
             else:
                 # 直接执行 exe 文件
                 cmd = [
@@ -172,16 +176,15 @@ class NeoLink:
 
         self.root.after(500, self.update)
 
-def CreateNeoLink(filePath: str, NeoLinkPath: str, LocalPort: int, SerialNumber: str, JavaPath: str):
+def CreateNeoLink(filePath: str, NeoLinkPath: str, LocalPort: int, SerialNumber: str):
     root = tkt.Tk(title='NeoLink')
 
-    neolink = NeoLink(
+    neolink = NeoLink( # pyright: ignore[reportUnusedVariable]
         root=root,
         filePath=filePath,
         NeoLinkPath=NeoLinkPath,
         LocalPort=LocalPort,
         SerialNumber=SerialNumber,
-        JavaPath=JavaPath,
     )
 
     root.mainloop()

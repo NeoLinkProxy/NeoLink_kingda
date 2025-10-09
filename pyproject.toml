@@ -9,5 +9,12 @@ dependencies = [
     "pywinstyles>=1.8",
     "pyyaml>=6.0.3",
     "requests>=2.32.5",
+    "rich>=14.1.0",
     "tkintertools>=3.0.0",
+    "tqdm>=4.67.1",
+]
+
+[dependency-groups]
+build = [
+    "pyinstaller>=6.16.0",
 ]
